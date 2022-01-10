@@ -151,7 +151,7 @@ void LoadFile(int& verticles, int& S, vector<int>& S_elements){
 
     string line;
 
-    ifstream file("C:/Users/filip/Desktop/Discrete_math/lab_4/graf.txt");
+    ifstream file("graph.txt"); //Chech for file directory!
 
     if (file.is_open()){
         file >> verticles;
@@ -170,6 +170,9 @@ void LoadFile(int& verticles, int& S, vector<int>& S_elements){
         }
 
         file.close();
+    }
+    else{
+        cout << "File Graph.txt not found" << endl;
     }
 
 }
