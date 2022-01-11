@@ -5,4 +5,5 @@ Laboratory tasks:
 2) Find biggest cycle in Graph - NP Complexity
 3) Travelling salesman problem - NP Complexity
    - implemented using Greedy approch and using exhaustive search
+4) Find minimal number of colors to color graph - NP Complexity
 
