@@ -72,7 +72,7 @@ public:
         if (decree < 3)
             G_granica = decree + 1; //Theorem
         else
-            G_granica = decree; //Broks Theorem
+            G_granica = decree; //Brooks Theorem
 
         int D_granica = 2;
 
@@ -81,39 +81,40 @@ public:
             flag = Color_graph(D_granica, 0);
             if (flag == true){
                 cout << "Graph is " << D_granica << "-colored" << endl;
-                print_colored_verticies();
+                print_colored_verticies(); //Print
                 return;
             }
             D_granica++;
         }
         cout << "Graph is " << G_granica << "-colored" << endl;
-        print_colored_verticies();
+        print_colored_verticies(); //Print
         return;
 
     }
 
-    void print_colored_verticies(){
+    void print_colored_verticies(){ //Vertex coloring output
+        cout << "Vertex coloring: ";
         for (int i = 0; i < vertices; i++)
             cout << color[i] << " ";
     }
 
     //color-index
-    //vrh - current vertex
-    bool Color_graph(int c_index, int vrh){
-        if (vrh == vertices){
+    //current vertex
+    bool Color_graph(int c_index, int vertex){
+        if (vertex == vertices){
             return true;
         }
 
         for (int i = 1; i <= c_index; i++){
 
-            if (Color_check(vrh, i) == true){
-                color[vrh] = i;
+            if (Color_check(vertex, i) == true){
+                color[vertex] = i;
 
-                if (Color_graph(c_index, vrh + 1) == true){
+                if (Color_graph(c_index, vertex + 1) == true){
                     return true;
                 }
                 //backtracking
-                color[vrh] = 0;
+                color[vertex] = 0;
             }
 
         }
@@ -121,12 +122,11 @@ public:
         return false;
     }
 
-    //vrh
-    //c-chech if you can color vertex vrh with color c
-    bool Color_check(int vrh, int c){
-        for (int i = 0; i < graph[vrh].size(); i++){
-            for (int j : graph[graph[vrh][i]]){
-                if (vrh == j && c == color[graph[vrh][i]]){
+    //chech if you can color vertex with color c
+    bool Color_check(int vertex, int c){
+        for (int i = 0; i < graph[vertex].size(); i++){
+            for (int j : graph[graph[vertex][i]]){
+                if (vertex == j && c == color[graph[vertex][i]]){
                     return false;
                 }
             }
@@ -202,7 +202,7 @@ int main(){
         }
     }
 
-    Adjacency_matrix(matrix);
+    //Adjacency_matrix(matrix);
     //g.printEdges();
     g.Chromatic_index();
 
