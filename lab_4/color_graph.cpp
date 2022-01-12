@@ -43,10 +43,10 @@ public:
 
             }
             if (counter > max){
-                if (max != 0 && check){
-                    check = false;
-                }
                 max = counter;
+            }
+            if (counter != vertices - 1){
+                check = false;
             }
             counter = 0;
         }
@@ -65,7 +65,7 @@ public:
         }
 
         if (complete_graph){
-            cout << "Complete graph is, " << vertices << "-colored";
+            cout << "Complete graph, " << vertices << "-colored";
             return;
         }
 
@@ -202,8 +202,8 @@ int main(){
         }
     }
 
-    //Adjacency_matrix(matrix);
-    //g.printEdges();
+    Adjacency_matrix(matrix);
+    g.printEdges();
     g.Chromatic_index();
 
     return 0;
